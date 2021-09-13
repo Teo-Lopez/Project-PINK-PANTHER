@@ -8,7 +8,7 @@ const User = require("../models/User.model")
 
     const { email, pwd } = req.body
 
-    if (pwd.length === 0) { // Si la contraseña está vacía
+    if (pwd.length === 0) {
     res.render('auth/auth-form', { errorMsg: 'La contraseña es obligatoria' })
     return
     }
@@ -58,3 +58,6 @@ const User = require("../models/User.model")
 //             const inputValue = e.target[0].value
 //             inputValue.match(/[0-9]/) && inputValue.match(/[A-Z]/) && inputValue.match(/[a-z]/) && inputValue.match(/[!$*]/) && inputValue.length >= 6 ? alert("Has cumplido la instrucción. Enviando datos.") : alert("Valor incorrecto, merluzo!")
 //         }
+
+
+module.exports = router

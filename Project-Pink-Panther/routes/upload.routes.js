@@ -1,4 +1,5 @@
-const { router } = require("../app");
+const router = require("express").Router()
+
 const Upload = require("../models/Upload.model");
 
 router.get('/', (req, res) => {
@@ -11,6 +12,8 @@ router.get('/', (req, res) => {
 
 })
 
+module.exports = router;
 
 
-module.exports = router
+
+
