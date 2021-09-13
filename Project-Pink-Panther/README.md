@@ -15,4 +15,4 @@
 | 11  | get    | /api                     | ruta de la api                                             |
 
 //no se si es necesaria obligatoriamente
-| 12  | post   | /delete/:id              | Elimina el archivo subido                                  |
+| 12 | post | /delete/:id | Elimina el archivo subido |
