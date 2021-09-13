@@ -13,4 +13,6 @@
 | 9   | get    | /upload/trend            | Muestra grupos de upload en funcion de sus tags            |
 | 10  | get    | /upload/list-tag?tag=xxx | Muestra la lista de upload en funcion del tag que le pasas |
 | 11  | get    | /api                     | ruta de la api                                             |
+
+//no se si es necesaria obligatoriamente
 | 12  | post   | /delete/:id              | Elimina el archivo subido                                  |
