@@ -7,7 +7,6 @@ const uploadSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "Tag",
       required: true,
-      lowercase: true,
     },
 
     img: {

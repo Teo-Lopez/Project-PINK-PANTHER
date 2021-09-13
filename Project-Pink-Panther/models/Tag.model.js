@@ -4,6 +4,7 @@ const tagSchema = new Schema(
   {
     tagname: {
       type: String,
+      lowercase: true,
       unique: true,
       required: true,
     },
