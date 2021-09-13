@@ -1,14 +1,11 @@
-// const router = require("express").Router()
+const router = require("express").Router();
 
-// const Upload = require('../models/Upload-model')
+const Upload = require("../models/Upload.model");
 
-// router.get('/api', (req, res) => {
+router.get("/", (req, res) => {
+  Upload.find()
+    .then((upload) => res.json(upload))
+    .catch((err) => console.log(err));
+});
 
-//     Upload
-//         .find()
-//         .then(upload => res.json(upload))
-//         .catch(err => console.log(err))
-
-// })
-
-// module.exports = router
+module.exports = router;
