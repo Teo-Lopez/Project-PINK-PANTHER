@@ -18,9 +18,9 @@ const uploadSchema = new Schema(
     location: {
       type: {
         type: String,
+        required: true,
       },
-      coordinates: [Number],
-      required: true,
+      coordinates: [{ type: Number, required: true }],
     },
   },
   {
