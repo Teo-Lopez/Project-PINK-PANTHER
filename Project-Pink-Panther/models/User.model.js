@@ -1,23 +1,32 @@
 const { Schema, model } = require("mongoose");
 
-const userSchema = new Schema({
-  email: {
-    type: String,
-    unique: true 
-  },
+const userSchema = new Schema(
+  {
+    email: {
+      type: String,
+      unique: true,
+      required: true,
+    },
 
-  password: String,
-  role: {
-    type: String,
-    enum: ['User', 'Admin'], 
-    default: 'User'
+    password: {
+      type: String,
+      required: true,
+    },
+    role: {
+      type: String,
+      enum: ["Peasant", "Agent", "Architect", "Wachowski Brother"],
+      default: "Peasant",
+    },
+    avatarImg: {
+      type: String,
+      enum: [""],
+    },
+  },
+  {
+    timestamps: true,
   }
-},
-{
-  timestamps: true
-}
-  );
-  
+);
+
 const User = model("User", userSchema);
 
 module.exports = User;
