@@ -3,10 +3,10 @@ const router = require("express").Router();
 const Upload = require("../models/Upload.model");
 
 router.get("/", (req, res, next) => {
-  Upload.find()
+  Upload.findOne()
     .populate("tagId")
     .then((theUpload) => {
-      res.send("index", theUpload);
+      res.render("index", theUpload);
     })
     .catch((err) => console.log(err));
 });

@@ -8,19 +8,21 @@
 
         <div class="col-md-6">
 
-            <form action="/estudiantes/{{id}}/editar-perfil" method="POST">
+            <form action="/perfil" method="POST">
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="text" class="form-control" id="email" name="email" value="{{email}}">
                 </div>
                 
                 <div class="form-group">
-                    <label for="description">Descripcion</label>
-                    <input type="text" class="form-control" id="description" name="description" value="{{description}}">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password" value="{{password}}">
                 </div>
-
-                <a href="/" class="btn btn-dark"></a>
-
+                
+                <div class="form-group">
+                    <label for="avatar">Imagen de Avatar</label>
+                    <input type="text" class="form-control" id="avatar" name="avatar" value="{{avatarImg}}"> {{!-- hay que cambiar el type por imagenes--}}
+                </div>
 
                 <button type="submit" class="btn btn-warning">Guardar perfil editado</button>
             </form>
