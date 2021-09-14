@@ -7,7 +7,15 @@
             <p>Tag:{{tagId.name}}</p>
             <p>Hay X {{tagId.name}} en este momento</p>
             <p>Imagen:</p><hr>
-            <img src="URLCLOUD/{{img}}" alt="{{tagId.name}}">
+            <img class="resolve" src="{{img}}" alt="imagen">
+
+            <form action='/fotograma/eliminar/{{id}}' method="post">
+
+                <button type="submit" class="btn btn-danger">Borrar fotograma</button>
+
+            </form>
+         
+
             {{!-- <p>Localizacion:</p>
             <ul>
             <li>Latitud:{{location}}</li>

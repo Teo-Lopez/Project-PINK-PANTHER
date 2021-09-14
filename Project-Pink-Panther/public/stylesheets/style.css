@@ -1,5 +1,5 @@
-body {
-  padding: 30px;
+/* body {
+  padding: px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -9,4 +9,9 @@ a {
 
 h1 {
   color: 15px;
+} */
+
+.resolve {
+  object-fit: cover;
+  height: 5%;
 }
