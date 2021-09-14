@@ -4,10 +4,11 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-
+            {{#each result}}
             <p>Tag:{{tagId.name}}</p>
             <p>Imagen:{{img}}</p>
-            <a href='/fotograma/detalles/{{id}}'> ir a narnia</a>
+            <a href='/fotograma/detalles/{{id}}'>detalles</a>
+            {{/each}}
         </div>
     </div>
 </div>
