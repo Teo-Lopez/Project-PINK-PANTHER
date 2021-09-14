@@ -36,6 +36,39 @@ const User = require("../models/User.model")
     })
 
 
+    router.get('/inicio-sesion', (req, res) => res.render('auth/login-form'))
+
+    router.post('/inicio-sesion', (req, res) => {
+
+        const { email, pwd } = req.body
+
+        if (pwd.length === 0 || email.length === 0) {     
+            res.render('auth/login-form', { errorMsg: 'Rellena los campos' })
+            return
+        }
+
+        User
+            .findOne({ email })
+            .then(user => {
+
+            if (!user) {
+                res.render('auth/login-form', { errorMsg: 'Usuario no reconocido' })
+                return
+            }
+
+            if (bcrypt.compareSync(pwd, user.password) === false) {
+                res.render('auth/login-form', { errorMsg: 'Contraseña incorrecta' })
+                return
+            }
+
+            req.session.currentUser = user
+            res.redirect('/')
+            })
+            .catch(err => console.log(err))
+
+        })      
+
+
 
     //EXPRESIONES REGULARES PARA LA CONTRASEÑA Y EL EMAIL
 

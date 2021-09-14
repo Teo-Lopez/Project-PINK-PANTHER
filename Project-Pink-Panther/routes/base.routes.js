@@ -5,3 +5,6 @@ router.get("/", (req, res, next) => {
 });
 
 module.exports = router;
+
+
+//Meter aqui un if que te mande al registro si no tienes iniciada sesion?
