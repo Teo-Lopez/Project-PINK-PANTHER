@@ -2,11 +2,15 @@ const router = require("express").Router();
 
 const Upload = require("../models/Upload.model");
 
+const { shuffle } = require("../utils");
+
 router.get("/", (req, res, next) => {
   Upload.findOne()
     .populate("tagId")
     .then((theUpload) => {
-      res.render("index", theUpload);
+      const result = shuffle(theUpload);
+
+      res.render("index", { result });
     })
     .catch((err) => console.log(err));
 });

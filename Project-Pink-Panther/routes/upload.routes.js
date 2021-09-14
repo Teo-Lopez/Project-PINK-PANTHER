@@ -22,7 +22,6 @@ router.post("/eliminar/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-
 //Show the details of the Upload
 router.get("/detalles/:id", (req, res) => {
   const { id } = req.params
@@ -32,7 +31,6 @@ router.get("/detalles/:id", (req, res) => {
     .then((theUpload) => res.render("upload/details", theUpload))
     .catch((err) => console.log(err))
 });
-  
 
 //Create an Upload
 router.get("/crear", (req, res) => {
