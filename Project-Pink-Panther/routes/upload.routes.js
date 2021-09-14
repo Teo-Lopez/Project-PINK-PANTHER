@@ -32,32 +32,24 @@ router.get("/upload/details/:id", (req, res) => {
 // })
 
 router.get("/create", (req, res) => {
-  const tagdehola = "#hola";
-  const theTagId = "613f8e11389a4c90298d8ac7";
+  const checkTag = "#gatoEsperando";
 
-  Tag.create({ name: "picando" })
-    .then((theTag) => res.send(theTag))
-    .catch((err) => console.log(err));
-  //   Upload.create({ tagId: theTagId, img: "imagen27" })
-  //     .then((theUpload) => res.send(theUpload))
-  //     .catch((err) => console.log(err));
-
-  //   Tag.findOne({ tagName: tagdehola }).then((theTag) => {
-  /* if (theTag) {
-      Upload.create({ tagId: theTag.id, img: "imagen" }).then((upload) => {
+  Tag.findOne({ name: checkTag }).then((theTag) => {
+    if (theTag) {
+      Upload.create({ tagId: theTag.id, img: "gatoJugando" }).then((upload) => {
         res.send(upload);
       });
-    } else {*/
-  //   console.log("hola");
-  //   Tag.create({ tagName: "#picando" }).then((newTag) => {
-  //   Upload.create({ tagId: newTag.id, img: "imagen2" }).then((upload2) => {
-  //     console.log(newTag);
-  //     res.send(upload2);
-  //   });
-  // console.log(newTag);
-  // });
-  //}
-  //   });
+    } else {
+      Tag.create({ name: checkTag }).then((newTag) => {
+        console.log(newTag);
+        Upload.create({ tagId: newTag.id, img: "gatoFallando" }).then(
+          (upload2) => {
+            res.send(upload2);
+          }
+        );
+      });
+    }
+  });
 });
 
 module.exports = router;
