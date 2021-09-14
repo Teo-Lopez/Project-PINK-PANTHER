@@ -7,7 +7,7 @@ module.exports = {
     }
     return array;
   },
-  occurrences: function (tags, uploads, top) {
+  occurences: function (tags, uploads, top) {
     let frequency = [];
     let index = [];
     let trend = [];
@@ -22,18 +22,14 @@ module.exports = {
       }
       frequency.push(counter);
     }
-
     for (let i = 0; i < top; i++) {
       index.push(frequency.indexOf(Math.max(...frequency)));
-      frequency.splice(index, 1);
-    }
-
-    console.log(top);
-
-    for (let i = 0; i < top; i++) {
+      frequency[frequency.indexOf(Math.max(...frequency))] = 0;
       trend.push(tags[index[i]]);
     }
-
+    // for (let i = 0; i < top; i++) {
+    //   trend.push(tags[index[i]]);
+    // }
     return trend;
   },
 };
