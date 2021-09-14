@@ -5,9 +5,9 @@ const User = require("../models/User.model");
 // Signup
 router.get("/registro", (req, res) => res.render("auth/auth-form"));
 router.post("/registro", (req, res) => {
-  const { email, pwd } = req.body;
+  const { email, userPwd } = req.body;
 
-  if (pwd.length === 0) {
+  if (userPwd.length === 0) {
     res.render("auth/auth-form", { errorMsg: "La contraseña es obligatoria" });
     return;
   }
@@ -21,7 +21,7 @@ router.post("/registro", (req, res) => {
 
       const bcryptSalt = 10;
       const salt = bcrypt.genSaltSync(bcryptSalt);
-      const hashPass = bcrypt.hashSync(pwd, salt); // Contraseña hasheada
+      const hashPass = bcrypt.hashSync(userPwd, salt); // Contraseña hasheada
 
       User.create({ email, password: hashPass })
         .then(() => res.redirect("/"))
@@ -35,16 +35,16 @@ router.get("/inicio-sesion", (req, res) => {
 });
 
 router.post("/inicio-sesion", (req, res) => {
-  const { username, userPwd } = req.body;
+  const { email, userPwd } = req.body;
 
-  if (userPwd.length === 0 || username.length === 0) {
+  if (userPwd.length === 0 || email.length === 0) {
     res.render("auth/login-form", {
       errorMsg: "Se deben rellenar todos los campos",
     });
     return;
   }
 
-  User.findOne({ username })
+  User.findOne({ email })
     .then((user) => {
       if (!user) {
         res.render("auth/login-form", { errorMsg: "El usuario no existe" });
@@ -60,6 +60,11 @@ router.post("/inicio-sesion", (req, res) => {
       res.redirect("/");
     })
     .catch((err) => console.log(err));
+});
+
+// Logout
+router.get("/cerrar-sesion", (req, res) => {
+  req.session.destroy(() => res.redirect("/"));
 });
 
 //EXPRESIONES REGULARES PARA LA CONTRASEÑA Y EL EMAIL

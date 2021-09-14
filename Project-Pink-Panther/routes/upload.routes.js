@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const Tag = require("../models/Tag.model");
-const { findByIdAndRemove } = require("../models/Upload.model"); //teo dinos algo
+
 const Upload = require("../models/Upload.model");
 
 router.get("/", (req, res) => {
@@ -11,7 +11,8 @@ router.get("/", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.post("/delete/:id", (req, res) => {
+//Delete Upload
+router.post("/eliminar/:id", (req, res) => {
   const { id } = req.params;
 
   Upload.findByIdAndRemove(id)
@@ -19,45 +20,48 @@ router.post("/delete/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/upload/details/:id", (req, res) => {
+
+//Show the details of the Upload
+router.get("/detalles/:id", (req, res) => {
   const { id } = req.params;
 
-  Upload.findById({ id })
-    .then((theUpload) => res.render("uploads/details"), { theUpload })
+  Upload.findById(id)
+    .populate("tagId")
+    .then((theUpload) => res.render("upload/details", theUpload))
     .catch((err) => console.log(err));
 });
 
-// router.get("/create",(req,res)=>{
 
-// })
+//Create an Upload
+router.get("/crear", (req, res) => {
+  res.render("upload/create");
+});
 
-router.get("/create", (req, res) => {
-  const tagdehola = "#hola";
-  const theTagId = "613f8e11389a4c90298d8ac7";
+router.post("/crear", (req, res) => {
+  const checkTag = "#hola";
 
-  Tag.create({ name: "picando" })
-    .then((theTag) => res.send(theTag))
+  Tag.findOne({ name: checkTag })
+    .then((theTag) => {
+      if (theTag) {
+        Upload.create({
+          tagId: theTag.id,
+          img: "existia el tag reloaded",
+        }).then((upload) => {
+          res.send(upload);
+        });
+      } else {
+        Tag.create({ name: checkTag })
+          .then((newTag) => {
+            Upload.create({ tagId: newTag.id, img: "no existia el tag" }).then(
+              (upload2) => {
+                res.send(upload2);
+              }
+            );
+          })
+          .catch((err) => console.log(err));
+      }
+    })
     .catch((err) => console.log(err));
-  //   Upload.create({ tagId: theTagId, img: "imagen27" })
-  //     .then((theUpload) => res.send(theUpload))
-  //     .catch((err) => console.log(err));
-
-  //   Tag.findOne({ tagName: tagdehola }).then((theTag) => {
-  /* if (theTag) {
-      Upload.create({ tagId: theTag.id, img: "imagen" }).then((upload) => {
-        res.send(upload);
-      });
-    } else {*/
-  //   console.log("hola");
-  //   Tag.create({ tagName: "#picando" }).then((newTag) => {
-  //   Upload.create({ tagId: newTag.id, img: "imagen2" }).then((upload2) => {
-  //     console.log(newTag);
-  //     res.send(upload2);
-  //   });
-  // console.log(newTag);
-  // });
-  //}
-  //   });
 });
 
 module.exports = router;
