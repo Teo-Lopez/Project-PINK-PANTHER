@@ -22,44 +22,57 @@ router.post("/eliminar/:id", (req, res) => {
 
 //Show the details of the Upload
 router.get("/detalles/:id", (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params
 
   Upload.findById(id)
     .populate("tagId")
     .then((theUpload) => res.render("upload/details", theUpload))
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err))
 });
 
 //Create an Upload
 router.get("/crear", (req, res) => {
-  res.render("upload/create");
+  res.render("upload/create")
 });
 
 router.post("/crear", (req, res) => {
-  const checkTag = "#hola";
 
-  Tag.findOne({ name: checkTag })
+  const { lng, lat, tag, img } = req.body
+
+  Tag.findOne({ name: tag })
     .then((theTag) => {
+
+      const location = {
+        type : 'Point',
+        coordinates: [lat, lng]
+      }
+
       if (theTag) {
+
         Upload.create({
           tagId: theTag.id,
-          img: "existia el tag reloaded",
-        }).then((upload) => {
-          res.send(upload);
-        });
+          img,
+          location
+        })
+        .then(() => res.redirect('/'))
+        .catch((err) => console.log(err))
+
       } else {
-        Tag.create({ name: checkTag })
+        Tag.create({ name: tag })
           .then((newTag) => {
-            Upload.create({ tagId: newTag.id, img: "no existia el tag" }).then(
-              (upload2) => {
-                res.send(upload2);
-              }
-            );
+
+            Upload.create({ 
+              tagId: newTag.id,
+              img,
+              location})
+              .then(() =>  res.redirect('/'))
+              .catch((err) => console.log(err))
+
           })
-          .catch((err) => console.log(err));
+          .catch((err) => console.log(err))
       }
     })
-    .catch((err) => console.log(err));
-});
+    .catch((err) => console.log(err))
+})
 
 module.exports = router;

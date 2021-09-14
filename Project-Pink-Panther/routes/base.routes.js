@@ -5,7 +5,7 @@ const Upload = require("../models/Upload.model");
 const { shuffle } = require("../utils");
 
 router.get("/", (req, res, next) => {
-  Upload.find()
+  Upload.findOne()
     .populate("tagId")
     .then((theUpload) => {
       const result = shuffle(theUpload);
