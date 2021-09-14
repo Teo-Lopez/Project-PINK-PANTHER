@@ -3,7 +3,7 @@ const Tag = require("./Tag.model");
 
 const uploadSchema = new Schema(
   {
-    tagName: {
+    tagId: {
       type: Schema.Types.ObjectId,
       ref: "Tag",
       required: true,
@@ -17,9 +17,14 @@ const uploadSchema = new Schema(
     location: {
       type: {
         type: String,
-        required: true,
+        //required: true,
       },
-      coordinates: [{ type: Number, required: true }],
+      coordinates: [
+        {
+          type: Number,
+          /*required: true*/
+        },
+      ],
     },
   },
   {

@@ -2,12 +2,10 @@ const { Schema, model } = require("mongoose");
 
 const tagSchema = new Schema(
   {
-    tagname: {
-      type: String,
-      lowercase: true,
-      unique: true,
-      required: true,
-    },
+    name: String,
+    //lowercase: true,
+    // unique: true,
+    //required: true,
   },
   {
     timestamps: true,
