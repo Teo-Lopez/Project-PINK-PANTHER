@@ -1,1 +1,36 @@
-<h1>Vista de formulario de creacion</h1>
+<h2>Vista de formulario de creacion</h2>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <form action="/fotograma/crear" method="POST">
+                <div class="form-group">
+                    <label for="location">Tu ubicacion:</label>
+                    <input type="text" class="form-control" id="location" name="lng" placeholder="longitud">
+                    <input type="text" class="form-control" id="location" name="lat" placeholder="latitud">
+
+                </div>
+
+                <div class="form-group">
+                    <label for="tag">Tag</label>
+                    <input type="text" class="form-control" id="tag" name="tag" >
+                </div>
+
+                <div class="form-group">
+                    <label for="image">Tu imagen</label>
+                    <input type="file" class="form-control" id="image" name="img"> {{!-- hay
+                    que cambiar el type por imagenes--}}
+                </div>
+
+                <button type="submit" class="btn btn-warning">Subir el Fotograma</button>
+            </form>
+
+        </div>
+
+        <hr>
+
+    </div>
+</div>
