@@ -53,7 +53,7 @@ router.post("/crear", CDNupload.single("img"), (req, res) => {
     .then(() => {
       
       const user = req.session.currentUser;
-
+      
       return User.findByIdAndUpdate(
         user._id,
         {

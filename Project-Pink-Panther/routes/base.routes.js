@@ -10,10 +10,10 @@ router.get("/", isLoggedIn, (req, res, next) => {
     .populate("tagId")
     .then((theUpload) => {
       const result = shuffle(theUpload);
-      const isAGENT = userIsAGENT(req.session.currentUser);
+      const isUser = compareRole(req.session.currentUser);
       res.render("index", {
         result,
-        isAGENT,
+        isUser,
       });
     })
     .catch((err) => console.log(err));
