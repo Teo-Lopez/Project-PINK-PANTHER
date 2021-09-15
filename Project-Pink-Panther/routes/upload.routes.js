@@ -1,19 +1,18 @@
 const router = require("express").Router();
-
 const { CDNupload } = require("../config/upload.config");
-
+const { isLoggedIn } = require('../middleware')
 const Tag = require("../models/Tag.model");
 const Upload = require("../models/Upload.model");
 const User = require("../models/User.model");
 
-router.get("/", (req, res) => {
+router.get("/", isLoggedIn, (req, res) => {
   const { currentTag } = req.query;
   Upload.find({ tag: currentTag })
     .then(allUpload => res.render("upload/list-tag", { allUpload }))
     .catch((err) => console.log(err));
 });
 
-router.post("/eliminar/:id", (req, res) => {
+router.post("/eliminar/:id", isLoggedIn, checkRoles('ARCHITECT'), (req, res) => {
   const { id } = req.params;
 
   Upload.findByIdAndRemove(id)
@@ -21,7 +20,7 @@ router.post("/eliminar/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/detalles/:id", (req, res) => {
+router.get("/detalles/:id", isLoggedIn, checkRoles('ARCHITECT' || 'AGENT'),(req, res) => {
   const { id } = req.params;
   Upload.findById(id)
     .populate("tagId")
@@ -30,9 +29,7 @@ router.get("/detalles/:id", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-router.get("/crear", (req, res) => {
-  res.render("upload/create");
-});
+router.get("/crear",  isLoggedIn,(req, res) => res.render("upload/create"));
 
 router.post("/crear", CDNupload.single("img"), (req, res) => {
   const { lng, lat, tag } = req.body;

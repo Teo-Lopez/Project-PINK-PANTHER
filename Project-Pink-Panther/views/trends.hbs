@@ -1,10 +1,19 @@
 <h1>Vista de tendencias</h1>
+<div class="container">
+    {{#each allUploads}}
+    <div class="row">
 
-{{#each allUploads}}
-    <p>{{this.0.tagId.name}}</p>   
-    {{#each this}}
-        <img src="{{img}}" alt="">
-    {{/each}}
-{{/each}} 
+        <p>{{this.0.tagId.name}}</p>
+        
+        <div class="col">
+
+        {{#each this}}
+            <img class="newImage" src="{{img}}" alt="imagen">
+        {{/each}}
+        
+        </div>
+    </div>
+    {{/each}} 
+</div>
 
 

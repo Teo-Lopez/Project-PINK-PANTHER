@@ -26,7 +26,7 @@ const userSchema = new Schema(
 
     avatarImg: {
       type: String,
-      enum: ["https://res.cloudinary.com/dvk0p9wev/image/upload/v1631732354/KkrwCqU_ijftfm.png","https://res.cloudinary.com/dvk0p9wev/image/upload/v1631732518/agente_m5pcez.jpg"]
+      enum: ["https://res.cloudinary.com/dvk0p9wev/image/upload/v1631734149/KkrwCqU_ijftfm.png","https://res.cloudinary.com/dvk0p9wev/image/upload/v1631732518/agente_m5pcez.jpg"]
     },
   },
   {

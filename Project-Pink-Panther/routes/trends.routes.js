@@ -3,8 +3,11 @@ const User = require("../models/User.model");
 const Tag = require("../models/Tag.model");
 const Upload = require("../models/Upload.model");
 const { occurences } = require("../utils");
+const { isLoggedIn } = require('../middleware')
 
-router.get("/", (req, res) => {
+
+
+router.get("/", isLoggedIn ,(req, res) => {
   const info = {};
 
   let arrUploadsTags = [];

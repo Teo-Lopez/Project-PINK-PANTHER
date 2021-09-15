@@ -17,7 +17,7 @@ h1 {
 }
 .newImage {
   object-fit: cover;
-  height: fit-content;
+  height: 10em;
 }
 
 #myMap {
