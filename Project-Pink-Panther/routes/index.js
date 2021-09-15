@@ -5,6 +5,5 @@ module.exports = (app) => {
   app.use("/api", require("./api.routes"));
   app.use("/perfil", require("./profile.routes"));
   app.use("/tendencias", require("./trends.route.js"));
-  app.use("/mapa", require("./map.routes"));
 
 };

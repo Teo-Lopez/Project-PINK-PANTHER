@@ -23,7 +23,6 @@ router.post("/eliminar/:id", (req, res) => {
 
 router.get("/detalles/:id", (req, res) => {
   const { id } = req.params;
-  console.log(id);
   Upload.findById(id)
     .populate("tagId")
     .then((theUpload) => res.render("upload/details", theUpload))
@@ -36,8 +35,6 @@ router.get("/crear", (req, res) => {
 
 router.post("/crear", CDNupload.single("img"), (req, res) => {
   const { lng, lat, tag } = req.body;
-
-  console.log("Objeto file de Multer:", req.file);
 
   Tag.findOne({ name: tag })
     .then((theTag) => {

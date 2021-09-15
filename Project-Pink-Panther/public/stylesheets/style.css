@@ -13,7 +13,11 @@ h1 {
 
 .resolve {
   object-fit: cover;
-  height: 5%;
+  height: 10em;
+}
+.newImage {
+  object-fit: cover;
+  height: fit-content;
 }
 
 #myMap {

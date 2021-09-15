@@ -1,13 +1,13 @@
-<h1>Vista de Detalles de Upload</h1>
 
 <div class="container">
+<h3>Vista de Detalles de Upload</h3>
     <div class="row">
         <div class="col-md-6">
-
-            <p>Tag:{{tagId.name}}</p>
+            <p>Tag:</p>
+            <p id="tagName">{{tagId.name}}</p>
             <p>Hay X {{tagId.name}} en este momento</p>
-            <p>Imagen:</p><hr>
-            <img class="resolve" src="{{img}}" alt="imagen">
+            {{!-- <p>Imagen:</p>
+            <img class="newImage" src="{{img}}" alt="imagen"> --}}
 
             <form action='/fotograma/eliminar/{{id}}' method="post">
 
@@ -15,12 +15,20 @@
 
             </form>
          
-
-            {{!-- <p>Localizacion:</p>
-            <ul>
-            <li>Latitud:{{location}}</li>
-            <li>Longitud:{{location}}</li>
-            </ul> --}}
+        <figure id="myMap">Mapa</figure>
+        <a href='/' class='btn btn-dark'>Volver</a>
         </div>
     </div>
 </div>
+
+
+
+<script src='/js/directions.js'></script>
+<script src='/js/mapStyles.js'></script>
+
+<script src='/js/basic-map-setup.js'></script>
+
+<script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+
+<script
+    src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDOuDALvzBrOz-Y-iQxy8lPZKvl8yw9ZX4&callback=initMap'></script>
