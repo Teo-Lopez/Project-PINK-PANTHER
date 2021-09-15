@@ -15,3 +15,8 @@ h1 {
   object-fit: cover;
   height: 5%;
 }
+
+img {
+  object-fit: cover;
+  height: 7em;
+}

@@ -1,6 +1,10 @@
 <h1>Vista de tendencias</h1>
 
-{{#each top}}
-<p>{{this}}</p>
+{{#each allUploads}}
+    <p>{{this.0.tagId.name}}</p>   
+    {{#each this}}
+        <img src="{{img}}" alt="">
+    {{/each}}
+{{/each}} 
 
-{{/each}}
+

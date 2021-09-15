@@ -1,3 +1,5 @@
+const User = require("../models/User.model");
+
 module.exports = {
   shuffle: (array) => {
     for (let i = array.length - 1; i > 0; i--) {
@@ -12,16 +14,16 @@ module.exports = {
     let index = [];
     let trend = [];
 
-    for (let i = 0; i < tags.length; i++) {
+    tags.forEach((elem) => {
       let counter = 0;
-
-      for (let j = 0; j < uploads.length; j++) {
-        if (tags[i] == uploads[j]) {
+      uploads.forEach((item) => {
+        if (elem == item) {
           counter++;
         }
-      }
+      });
       frequency.push(counter);
-    }
+    });
+
     for (let i = 0; i < top; i++) {
       index.push(frequency.indexOf(Math.max(...frequency)));
       frequency[frequency.indexOf(Math.max(...frequency))] = 0;
@@ -30,4 +32,6 @@ module.exports = {
 
     return trend;
   },
+  userIsAGENT : user => user.role === "AGENT"
+
 };

@@ -10,6 +10,9 @@ router.get("/", (req, res) => {
   let arrUploadsTags = [];
   let arrTags = [];
   let arrTagsName = [];
+  let arrUploadTrend = [];
+
+  //const trend1,trend2, trend3, trend4, trend5 = [];
 
   Tag.find()
     .then((tag) => {
@@ -31,15 +34,19 @@ router.get("/", (req, res) => {
       return top;
     })
     .then((top) => {
-      const promiseArray = top.map((element) =>
-        Tag.findById(element).then((theTag) => theTag.name)
+      const promiseArray = top.map((element) => Tag.findById(element));
+
+      return Promise.all(promiseArray);
+    })
+    .then((trendingTags) => {
+      const promiseArray = trendingTags.map((elem) =>
+        Upload.find({ tagId: elem.id }).populate("tagId")
       );
 
-      Promise.all(promiseArray).then((result) => {
-        res.render("trends", { result });
+      Promise.all(promiseArray).then((allUploads) => {
+        res.render("trends", { trendingTags, allUploads });
       });
     })
-
     .catch((err) => console.log(err));
 });
 
