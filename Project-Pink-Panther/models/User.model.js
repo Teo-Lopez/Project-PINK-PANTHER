@@ -12,14 +12,19 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+
+    counter: {
+      type: Number,
+    },
+
     role: {
       type: String,
-      enum: ["Peasant", "Agent", "Architect", "Wachowski Brother"],
-      default: "Peasant",
+      enum: ["PEASANT", "AGENT"],
+      default: "PEASANT",
     },
+
     avatarImg: {
       type: String,
-      enum: [""],
     },
   },
   {

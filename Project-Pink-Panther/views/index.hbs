@@ -7,7 +7,9 @@
             {{#each result}}
             <p>Tag:{{tagId.name}}</p>
             <img class="resolve" src="{{img}}" alt="imagen">
+            {{#if ../isAGENT}}
             <a href='/fotograma/detalles/{{id}}' class="btn btn-dark"> ir a narnia</a>
+            {{/if}}
             <hr>
             {{/each}}
         </div>

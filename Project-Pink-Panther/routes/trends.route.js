@@ -9,31 +9,38 @@ router.get("/", (req, res) => {
 
   let arrUploadsTags = [];
   let arrTags = [];
+  let arrTagsName = [];
 
   Tag.find()
     .then((tag) => {
       tag.forEach((element) => {
-        arrTags.push(element._id);
+        arrTags.push(element._id.toString());
       });
-      console.log(arrTags);
+
       info.arrTags = arrTags;
-      //   res.send(info.arrTags)
       return Upload.find();
-      //res.send(arrTags);
     })
     .then((response) => {
       response.forEach((element) => {
-        arrUploadsTags.push(element.tagId);
+        arrUploadsTags.push(element.tagId.toString());
       });
       info.arrUploadsTags = arrUploadsTags;
-      console.log(info.arrTags);
 
       const top = occurences(info.arrTags, info.arrUploadsTags, 3);
-      res.render("trends", { top });
-    })
-    .catch((err) => console.log(err));
 
-  //   res.send(arrTags);
+      return top;
+    })
+    .then((top) => {
+      const promiseArray = top.map((element) =>
+        Tag.findById(element).then((theTag) => theTag.name)
+      );
+
+      Promise.all(promiseArray).then((result) => {
+        res.render("trends", { result });
+      });
+    })
+
+    .catch((err) => console.log(err));
 });
 
 module.exports = router;
