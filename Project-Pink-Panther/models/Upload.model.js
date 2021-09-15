@@ -17,12 +17,12 @@ const uploadSchema = new Schema(
     location: {
       type: {
         type: String,
-        //required: true,
+        required: true,
       },
       coordinates: [
         {
           type: Number,
-          /*required: true*/
+          equired: true,
         },
       ],
     },
@@ -32,7 +32,7 @@ const uploadSchema = new Schema(
   }
 );
 
-// uploadSchema.index({ location: '2dsphere' })
+uploadSchema.index({ location: '2dsphere' })
 
 const Upload = model("Upload", uploadSchema);
 

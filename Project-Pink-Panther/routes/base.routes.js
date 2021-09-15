@@ -10,11 +10,12 @@ router.get("/", (req, res, next) => {
     .then((theUpload) => {
       const result = shuffle(theUpload);
 
-      res.render("index", { result });
+      res.render("index", {
+        result,
+        isAGENT: req.session.currentUser?.role == "AGENT",
+      });
     })
     .catch((err) => console.log(err));
 });
 
 module.exports = router;
-
-//Meter aqui un if que te mande al registro si no tienes iniciada sesion?

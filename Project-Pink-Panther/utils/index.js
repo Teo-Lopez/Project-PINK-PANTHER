@@ -27,9 +27,7 @@ module.exports = {
       frequency[frequency.indexOf(Math.max(...frequency))] = 0;
       trend.push(tags[index[i]]);
     }
-    // for (let i = 0; i < top; i++) {
-    //   trend.push(tags[index[i]]);
-    // }
+
     return trend;
   },
 };
