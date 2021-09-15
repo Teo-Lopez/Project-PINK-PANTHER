@@ -15,3 +15,9 @@ h1 {
   object-fit: cover;
   height: 5%;
 }
+
+#myMap {
+  margin: 10px;
+  height: 400px;
+  background-color: red;
+}
