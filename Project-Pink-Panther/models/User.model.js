@@ -15,6 +15,7 @@ const userSchema = new Schema(
 
     counter: {
       type: Number,
+      default: 0,
     },
 
     role: {

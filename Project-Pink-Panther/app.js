@@ -10,11 +10,11 @@ const app = express();
 
 require("./config")(app);
 
-app.locals.titleMain = 'Project-Pink-Panther';
+app.locals.titleMain = "watchadoing?_";
 
-require('./config/session.config')(app)    
+require("./config/session.config")(app);
 
-require("./routes")(app)
+require("./routes")(app);
 
 require("./error-handling")(app);
 
