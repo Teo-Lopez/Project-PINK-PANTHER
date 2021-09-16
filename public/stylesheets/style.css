@@ -17,7 +17,7 @@ h4 {
   margin: 5px;
 }
 body {
-  background-color: rgb(17, 17, 17);
+  background-color: black;
   height: 100vh;
   color: white;
   font: 1.3rem Inconsolata, monospace;
@@ -37,9 +37,14 @@ body {
   object-fit: cover;
 }
 
-#myMap {
+#myMapDetails {
   margin: 10px;
   height: 400px;
+  background-color: red;
+}
+#myMapCreate {
+  margin: 10px;
+  height: 0px;
   background-color: red;
 }
 .column {
