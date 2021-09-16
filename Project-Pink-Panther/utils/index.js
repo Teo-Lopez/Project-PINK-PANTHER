@@ -34,4 +34,6 @@ module.exports = {
   },
   compareRole: (user) => user?.role === "AGENT" || user?.role === "ARCHITECT",
   isARCHITECT: (user) => user?.role === "ARCHITECT",
+  isAGENT: (user) => user?.role === "AGENT",
+  isPEASANT: (user) => user?.role === "PEASANT",
 };
