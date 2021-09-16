@@ -11,13 +11,19 @@ h1 {
   color: 15px;
 } */
 
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
 .resolve {
-  object-fit: cover;
   height: 10em;
+  object-fit: cover;
 }
 .newImage {
-  object-fit: cover;
   height: 10em;
+  object-fit: cover;
 }
 
 #myMap {

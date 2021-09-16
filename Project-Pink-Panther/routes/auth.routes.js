@@ -56,15 +56,17 @@ router.post("/inicio-sesion", (req, res) => {
         return;
       }
 
-      req.session.currentUser = user;
-
+      req.session.currentUser = user
+     // req.app.locals.currentUser = user
       res.redirect("/");
     })
     .catch((err) => console.log(err));
 });
 
 router.get("/cerrar-sesion", (req, res) => {
+
   req.session.destroy(() => res.redirect("/"));
+  req.app.locals.currentUser = null
 });
 
 module.exports = router;
