@@ -1,2 +1,0 @@
-{"_id":{"$oid":"614343fbefbf865260422a26"},"email":"jesusnavas@outlook.com","password":"$2b$10$YErdQzFYT4oTipvH5Ach6O4JUzBJvJmq20xM/MSndbL6wWSh0VtSm","counter":0,"role":"ARCHITECT","createdAt":{"$date":"2021-09-16T13:17:47.494Z"},"updatedAt":{"$date":"2021-09-16T13:17:47.494Z"},"__v":0}
-{"_id":{"$oid":"61434461efbf865260422a33"},"email":"tinezillo@gmail.com","password":"$2b$10$d3JkMRiwUARMN/j518kaAuH22LMnqvN.qXX.BU8ny7O7.nBaKWt4i","counter":0,"role":"ARCHITECT","createdAt":{"$date":"2021-09-16T13:19:29.347Z"},"updatedAt":{"$date":"2021-09-16T13:19:29.347Z"},"__v":0}

@@ -10,7 +10,7 @@ const app = express();
 
 require("./config")(app);
 
-app.locals.titleMain = "watchadoing?_";
+app.locals.titleMain = "Watchadoing?_";
 
 require("./config/session.config")(app);
 
