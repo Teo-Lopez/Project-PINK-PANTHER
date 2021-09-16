@@ -8,6 +8,7 @@ a {
 }
 
 */
+
 h1,
 h2,
 h3,
@@ -15,8 +16,8 @@ h4 {
   color: 15px;
   margin: 5px;
 }
-*/ body {
-  background-color: black;
+body {
+  background-color: rgb(17, 17, 17);
   height: 100vh;
   color: white;
   font: 1.3rem Inconsolata, monospace;
@@ -26,7 +27,6 @@ h4 {
 #sticky {
   border-bottom: 1px solid #989ea4;
   border-top: 1px solid #717d85;
-  position: sticky;
 }
 .resolve {
   height: 15em;
@@ -43,8 +43,9 @@ h4 {
   background-color: red;
 }
 .column {
-  /* border-image: 10;
-  border-color: black;
-  border-radius: 50%; */
   margin: 10 px;
+}
+
+nav {
+  color: black;
 }
