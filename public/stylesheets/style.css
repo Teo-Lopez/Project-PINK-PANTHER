@@ -7,22 +7,24 @@ a {
   color: #00b7ff;
 }
 
-h1 {
+*/
+h1, h2, h3, h4 {
   color: 15px;
-} */
+  margin: 5px;
+}
 
-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+#sticky {
+  border-bottom: 1px solid #989EA4;
+  border-top: 1px solid #717D85;
+  position: sticky;
+  
 }
 .resolve {
-  height: 10em;
+  height: 15em;
   object-fit: cover;
 }
 .newImage {
-  height: 10em;
+  height: 15em;
   object-fit: cover;
 }
 
@@ -30,4 +32,10 @@ nav {
   margin: 10px;
   height: 400px;
   background-color: red;
+}
+.column {
+  /* border-image: 10;
+  border-color: black;
+  border-radius: 50%; */
+  margin: 10 px;
 }

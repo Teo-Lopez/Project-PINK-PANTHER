@@ -2,21 +2,25 @@
 <div class="container">
 <h3>Vista de Detalles de Upload</h3>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-12">
+
             <p>Tag:
             <span id="tagName">{{info.theUpload.tagId.name}}</span></p>
             <p>Hay {{total.[0]}} {{info.theUpload.tagId.name}} en este momento</p>
-           
             {{#if checkArchitect}}
             <form action='/fotograma/eliminar/{{id}}' method="post">
-
                 <button type="submit" class="btn btn-danger">Borrar fotograma</button>
-
             </form>
             {{/if}}
-        <figure id="myMap">Mapa</figure>
-        <a href='/' class='btn btn-dark'>Volver</a>
+            
         </div>
+
+        <div class="col-12">
+
+            <figure id="myMap">Mapa</figure>
+            <a href='/' class='btn btn-dark'>Volver</a>
+        </div>
+
     </div>
 </div>
 

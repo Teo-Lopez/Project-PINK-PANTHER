@@ -1,4 +1,4 @@
-<div class="container">
+{{!-- <div class="container">
         
     <div class="input-group rounded">
         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
@@ -8,26 +8,20 @@
         </span>
     </div>
     
-</div>
+</div> --}}
 
 <div class="container">
     <h2>Vista de tendencias</h2>
-    {{#each allUploads}}
     <div class="row">
-
+    {{#each allUploads}}
       <a href="tendencias/detalles/{{this.0.tagId.id}}"><p>{{this.0.tagId.name}}</p></a>  
-        
-        <div class="col">
-
         {{#each this}}
-
-            <a href="tendencias/detalles/{{../this.0.tagId.id}}"><img src="{{img}}" alt="imagen"></a>
-    
-        {{/each}}
-        
+        <div class="col column">
+            <a href="tendencias/detalles/{{../this.0.tagId.id}}"><img class="resolve" src="{{img}}" alt="imagen"></a>
         </div>
-    </div>
+        {{/each}}
     {{/each}} 
+    </div>
 </div>
 
 

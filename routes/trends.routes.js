@@ -7,13 +7,8 @@ const { isLoggedIn } = require("../middleware");
 
 router.get("/", isLoggedIn, (req, res) => {
   const info = {};
-
-  let arrUploadsTags = [];
-  let arrTags = [];
-  let arrTagsName = [];
-  let arrUploadTrend = [];
-
-  //const trend1,trend2, trend3, trend4, trend5 = [];
+  const arrUploadsTags = [];
+  const arrTags = [];
 
   Tag.find()
     .then((tag) => {
@@ -45,7 +40,7 @@ router.get("/", isLoggedIn, (req, res) => {
       );
 
       Promise.all(promiseArray).then((allUploads) => {
-        res.render("trends", { trendingTags, allUploads });
+        res.render("trends/list", { trendingTags, allUploads });
       });
     })
     .catch((err) => console.log(err));
@@ -60,7 +55,7 @@ router.get("/detalles/:id", (req, res) => {
       let total = tagUploads.length
       //const result = shuffle(tagUploads);
       //const isUser = compareRole(req.session.currentUser);
-      res.render("trends-details", { tagUploads, total });
+      res.render("trends/details", { tagUploads, total });
     })
     .catch((err) => console.log(err));
 });
