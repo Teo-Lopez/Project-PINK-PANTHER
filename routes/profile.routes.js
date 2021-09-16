@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { isLoggedIn, isSameUser } = require("../middleware");
+const { isLoggedIn } = require("../middleware");
 const { isARCHITECT, isAGENT, isPEASANT } = require("../utils");
 const User = require("../models/User.model");
 
@@ -32,14 +32,13 @@ router.post("/", (req, res) => {
     .then(() => res.redirect("/"))
     .catch((err) => console.log(err));
 });
-/*
-router.post("/eliminar/:id", isSameUser, isLoggedIn, (req, res) => {
-  const user = req.session.currentUser;
+
+router.post("/eliminar/:id", (req, res) => {
   const { id } = req.params;
 
-  User.findByIdAndRemove(user.id)
+  User.findByIdAndRemove(id)
     .then(() => res.redirect("/"))
     .catch((err) => console.log(err));
 });
-*/
+
 module.exports = router;

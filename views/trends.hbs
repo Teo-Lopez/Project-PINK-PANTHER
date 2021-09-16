@@ -11,12 +11,14 @@
     {{#each allUploads}}
     <div class="row">
 
-        <p>{{this.0.tagId.name}}</p>
+      <a href="tendencias/detalles/{{this.0.tagId.id}}"><p>{{this.0.tagId.name}}</p></a>  
         
         <div class="col">
 
         {{#each this}}
-            <img class="newImage" src="{{img}}" alt="imagen">
+
+            <a href="tendencias/detalles/{{../this.0.tagId.id}}"><img src="{{img}}" alt="imagen"></a>
+    
         {{/each}}
         
         </div>

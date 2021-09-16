@@ -3,11 +3,9 @@ const User = require("../models/User.model");
 const Tag = require("../models/Tag.model");
 const Upload = require("../models/Upload.model");
 const { occurences } = require("../utils");
-const { isLoggedIn } = require('../middleware')
+const { isLoggedIn } = require("../middleware");
 
-
-
-router.get("/", isLoggedIn ,(req, res) => {
+router.get("/", isLoggedIn, (req, res) => {
   const info = {};
 
   let arrUploadsTags = [];
@@ -49,6 +47,19 @@ router.get("/", isLoggedIn ,(req, res) => {
       Promise.all(promiseArray).then((allUploads) => {
         res.render("trends", { trendingTags, allUploads });
       });
+    })
+    .catch((err) => console.log(err));
+});
+
+router.get("/detalles/:id", (req, res) => {
+  const { id } = req.params;
+
+  Upload.find({ tagId: id })
+    .populate("tagId")
+    .then((theUpload) => {
+      //const result = shuffle(theUpload);
+      //const isUser = compareRole(req.session.currentUser);
+      res.render("trends-details", { theUpload });
     })
     .catch((err) => console.log(err));
 });

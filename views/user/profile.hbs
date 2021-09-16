@@ -22,7 +22,7 @@
                     {{/if}}
                 </div>
                 <p>UPLOADS: {{user.counter}}</p>
-    <h2>Editar</h2>
+            <h2>Editar</h2>
             <form action="/perfil" method="POST">
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -37,9 +37,11 @@
             </form>
 
 
-            {{!-- <form action='perfil/eliminar/{{id}}' method="post">
-                <button type="submit" class="btn btn-danger">Borrar fotograma</button>
-            </form> --}}
+            <form action='/perfil/eliminar/{{id}}' method="post">
+            
+                <button type="submit" class="btn btn-danger">Borrar Usuario</button>
+            
+            </form>
 
             </form>
             </form>
