@@ -10,6 +10,13 @@ a {
 h1 {
   color: 15px;
 } */
+body {
+  background-color: black;
+  height: 100vh;
+  color: white;
+  font: 1.3rem Inconsolata, monospace;
+  text-shadow: 0 0 5px #c8c8c8;
+}
 
 nav {
   position: fixed;
