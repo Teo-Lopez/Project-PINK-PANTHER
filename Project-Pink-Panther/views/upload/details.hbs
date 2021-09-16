@@ -3,9 +3,9 @@
 <h3>Vista de Detalles de Upload</h3>
     <div class="row">
         <div class="col-md-6">
-            <p>Tag:</p>
-            <p id="tagName">{{theUpload.tagId.name}}</p>
-            <p>Hay{{theUpload.tagId.name}} en este momento</p>
+            <p>Tag:
+            <span id="tagName">{{theUpload.tagId.name}}</span></p>
+            <p>Hay {{theUpload.tagId.name}} en este momento</p>
            
             {{#if checkArchitect}}
             <form action='/fotograma/eliminar/{{id}}' method="post">
@@ -22,7 +22,6 @@
 
 
 
-<script src='/js/directions.js'></script>
 <script src='/js/mapStyles.js'></script>
 <script src='/js/basic-map-setup.js'></script>
 <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
