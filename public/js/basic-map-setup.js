@@ -1,5 +1,5 @@
 function initMap() {
-  const myMap = new google.maps.Map(document.querySelector("#myMapDetails"), {
+  const myMap = new google.maps.Map(document.querySelector("#myMap"), {
     zoom: 15,
     styles: mapStyles.silver,
   });

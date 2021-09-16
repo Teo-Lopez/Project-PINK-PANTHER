@@ -22,7 +22,7 @@ const uploadSchema = new Schema(
       coordinates: [
         {
           type: Number,
-          equired: false,
+          equired: true,
         },
       ],
     },
