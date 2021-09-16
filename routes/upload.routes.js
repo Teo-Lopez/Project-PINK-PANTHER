@@ -26,22 +26,23 @@ router.post(
   }
 );
 
-router.get(
-  "/detalles/:id",
-  isLoggedIn,
-  checkRoles("ARCHITECT", "AGENT"),
-  (req, res) => {
+router.get("/detalles/:id", isLoggedIn, checkRoles("ARCHITECT", "AGENT"), (req, res) => {
     const { id } = req.params;
+    const total = []
+    const info = {}
     Upload.findById(id)
-      .populate("tagId")
-      //.select("tagId location")
-      .then((theUpload) => {
-        const checkArchitect = isARCHITECT(req.session.currentUser);
-        res.render("upload/details", { theUpload, checkArchitect });
-      })
+    .populate("tagId")
+    .then((theUpload) => {
+      info.theUpload = theUpload
+      return Upload.find({ tagId: theUpload.tagId.id })
+    })
+    .then(tagUploads => {
+      const checkArchitect = isARCHITECT(req.session.currentUser)
+      total.push(tagUploads.length)
+      res.render("upload/details", {total, info, checkArchitect})
+    })
       .catch((err) => console.log(err));
-  }
-);
+  });
 
 router.get("/crear", isLoggedIn, (req, res) => res.render("upload/create"));
 

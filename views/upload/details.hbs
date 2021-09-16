@@ -4,8 +4,8 @@
     <div class="row">
         <div class="col-md-6">
             <p>Tag:
-            <span id="tagName">{{theUpload.tagId.name}}</span></p>
-            <p>Hay {{theUpload.tagId.name}} en este momento</p>
+            <span id="tagName">{{info.theUpload.tagId.name}}</span></p>
+            <p>Hay {{total.[0]}} {{info.theUpload.tagId.name}} en este momento</p>
            
             {{#if checkArchitect}}
             <form action='/fotograma/eliminar/{{id}}' method="post">
