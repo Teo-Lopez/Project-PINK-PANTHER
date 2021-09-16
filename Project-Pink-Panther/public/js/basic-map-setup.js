@@ -1,6 +1,6 @@
 function initMap() {
   const myMap = new google.maps.Map(document.querySelector("#myMap"), {
-    zoom: 12,
+    zoom: 15,
     styles: mapStyles.silver,
   });
 
