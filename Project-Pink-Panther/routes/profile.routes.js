@@ -1,9 +1,9 @@
 const router = require("express").Router();
-const { isLoggedIn, isSameUser } = require('../middleware')
+const { isLoggedIn } = require("../middleware");
 
 const User = require("../models/User.model");
 
-router.get("/", isLoggedIn, isSameUser, (req, res) => {
+router.get("/", isLoggedIn, (req, res) => {
   const user = req.session.currentUser;
 
   User.findById(user._id)

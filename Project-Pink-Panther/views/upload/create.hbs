@@ -9,8 +9,8 @@
             <form action="/fotograma/crear" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="location">Tu ubicacion:</label>
-                    <input type="text" class="form-control" id="location" name="lng" placeholder="longitud">
-                    <input type="text" class="form-control" id="location" name="lat" placeholder="latitud">
+                    <input id='lng' value="" type="text" class="form-control" id="location" name="lng">
+                    <input  id='lat' value="" type="text" class="form-control" id="location" name="lat">
 
                 </div>
 
@@ -21,8 +21,7 @@
 
                 <div class="form-group">
                     <label for="image">Tu imagen</label>
-                    <input type="file" class="form-control" id="image" name="img"> {{!-- hay
-                    que cambiar el type por imagenes--}}
+                    <input type="file" class="form-control" id="image" name="img">
                 </div>
 
                 <button type="submit" class="btn btn-warning">Subir el Fotograma</button>

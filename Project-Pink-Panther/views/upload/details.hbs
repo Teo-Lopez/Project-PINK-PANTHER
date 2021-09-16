@@ -4,16 +4,16 @@
     <div class="row">
         <div class="col-md-6">
             <p>Tag:</p>
-            <p id="tagName">{{tagId.name}}</p>
+            <p id="tagName">{{theUpload.tagId.name}}</p>
             <p>Hay X {{tagId.name}} en este momento</p>
            
-
+            {{#if checkArchitect}}
             <form action='/fotograma/eliminar/{{id}}' method="post">
 
                 <button type="submit" class="btn btn-danger">Borrar fotograma</button>
 
             </form>
-         
+            {{/if}}
         <figure id="myMap">Mapa</figure>
         <a href='/' class='btn btn-dark'>Volver</a>
         </div>

@@ -7,7 +7,7 @@ module.exports = {
     (req, res, next) => {
       roles.includes(req.session.currentUser.role)
         ? next()
-        : res.render("auth/login-form", { errorMsg: "No tienes permisos" });
+        : res.redirect("/");
     },
     isLoggedIn: (req,res, next) => {
 

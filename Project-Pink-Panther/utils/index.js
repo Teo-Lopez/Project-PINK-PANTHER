@@ -33,4 +33,5 @@ module.exports = {
     return trend;
   },
   compareRole: (user) => user?.role === "AGENT" || user?.role === "ARCHITECT",
+  isARCHITECT: (user) => user?.role === "ARCHITECT",
 };
