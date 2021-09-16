@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { CDNupload } = require("../config/upload.config");
 const { isLoggedIn, checkRoles } = require("../middleware");
-const { isARCHITECT } = require("../utils");
+const { isARCHITECT} = require("../utils");
 const Tag = require("../models/Tag.model");
 const Upload = require("../models/Upload.model");
 const User = require("../models/User.model");
@@ -47,6 +47,7 @@ router.get("/crear", isLoggedIn, (req, res) => res.render("upload/create"));
 
 router.post("/crear", CDNupload.single("img"), (req, res) => {
   const { lng, lat, tag } = req.body;
+  // const path = req.file.path
   const location = {
     type: "Point",
     coordinates: [lat, lng],

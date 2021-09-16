@@ -5,8 +5,8 @@ function initMap() {
   });
 
   getCoords(myMap);
-  sendCoords();
   getUploads(myMap);
+  sendCoords();
 }
 
 function getCoords(map) {
@@ -39,7 +39,7 @@ function printUploads(uploads, map) {
       lng: elm.location.coordinates[1],
     };
 
-    new google.maps.Marker({ map, position});
+    new google.maps.Marker({ map, position });
   });
 }
 
