@@ -5,8 +5,8 @@ function initMap() {
   });
 
   getCoords(myMap);
-  sendCoords();
   getUploads(myMap);
+  sendCoords();
 }
 
 function getCoords(map) {
@@ -43,16 +43,13 @@ function printUploads(uploads, map) {
   });
 }
 
-// function sendCoords(coords) {
-//     document.querySelector('#lng').value = coords.longitude
-//     document.querySelector("#lat").value = coords.latitude;
-
-// }
 function sendCoords() {
+  const lngInput = document.querySelector("#lng")
+  const latInput = document.querySelector("#lat")
   navigator.geolocation.getCurrentPosition(
     (position) => {
-      document.querySelector("#lng").value = position.coords.longitude;
-      document.querySelector("#lat").value = position.coords.latitude;
+      if(lngInput) lngInput.value = position.coords.longitude;
+      if(latInput) latInput.value = position.coords.latitude;
     },
     (error) => console.log("ERROR", error)
   );
