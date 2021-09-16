@@ -56,10 +56,11 @@ router.get("/detalles/:id", (req, res) => {
 
   Upload.find({ tagId: id })
     .populate("tagId")
-    .then((theUpload) => {
-      //const result = shuffle(theUpload);
+    .then((tagUploads) => {
+      let total = tagUploads.length
+      //const result = shuffle(tagUploads);
       //const isUser = compareRole(req.session.currentUser);
-      res.render("trends-details", { theUpload });
+      res.render("trends-details", { tagUploads, total });
     })
     .catch((err) => console.log(err));
 });

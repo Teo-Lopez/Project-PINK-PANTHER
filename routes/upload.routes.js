@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { CDNupload } = require("../config/upload.config");
 const { isLoggedIn, checkRoles } = require("../middleware");
-const { isARCHITECT} = require("../utils");
+const { isARCHITECT } = require("../utils");
 const Tag = require("../models/Tag.model");
 const Upload = require("../models/Upload.model");
 const User = require("../models/User.model");
