@@ -25,7 +25,7 @@ router.get("/", isLoggedIn, (req, res) => {
       });
       info.arrUploadsTags = arrUploadsTags;
 
-      const top = occurences(info.arrTags, info.arrUploadsTags, 3);
+      const top = occurences(info.arrTags, info.arrUploadsTags, 5);
 
       return top;
     })
@@ -52,7 +52,7 @@ router.get("/detalles/:id", (req, res) => {
   Upload.find({ tagId: id })
     .populate("tagId")
     .then((tagUploads) => {
-      let total = tagUploads.length
+      let total = tagUploads.length;
       //const result = shuffle(tagUploads);
       //const isUser = compareRole(req.session.currentUser);
       res.render("trends/details", { tagUploads, total });

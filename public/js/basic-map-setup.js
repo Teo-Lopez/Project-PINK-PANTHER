@@ -44,12 +44,12 @@ function printUploads(uploads, map) {
 }
 
 function sendCoords() {
-  const lngInput = document.querySelector("#lng")
-  const latInput = document.querySelector("#lat")
+  const lngInput = document.querySelector("#lng");
+  const latInput = document.querySelector("#lat");
   navigator.geolocation.getCurrentPosition(
     (position) => {
-      if(lngInput) lngInput.value = position.coords.longitude;
-      if(latInput) latInput.value = position.coords.latitude;
+      if (lngInput) lngInput.value = position.coords.longitude;
+      if (latInput) latInput.value = position.coords.latitude;
     },
     (error) => console.log("ERROR", error)
   );

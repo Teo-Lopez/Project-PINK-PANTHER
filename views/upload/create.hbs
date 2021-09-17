@@ -1,6 +1,6 @@
 
 <div class="container">
-<h3>Vista de formulario de creacion</h3>
+<h3>knock, knock, upload.</h3>
 
     <div class="row">
 
@@ -8,23 +8,23 @@
 
             <form action="/fotograma/crear" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label for="location">Tu ubicacion:</label>
-                    <input id='lng' value="" type="text" class="form-control" id="location" name="lng">
-                    <input  id='lat' value="" type="text" class="form-control" id="location" name="lat">
+                    <label for="location"></label>
+                    <input id='lng' value="" type="hidden" class="form-control" id="location" name="lng">
+                    <input  id='lat' value="" type="hidden" class="form-control" id="location" name="lat">
 
                 </div>
 
                 <div class="form-group">
                     <label for="tag">Tag</label>
-                    <input type="text" class="form-control" id="tag" name="tag" >
+                    <input type="text" class="form-control" id="tag" name="tag" value="#">
                 </div>
 
                 <div class="form-group">
-                    <label for="image">Tu imagen</label>
+                    <label for="image">Image</label>
                     <input type="file" class="form-control" id="image" name="img">
                 </div>
 
-                <button type="submit" class="btn btn-warning">Subir el Fotograma</button>
+                <button type="submit" class="btn btn-dark">upload</button> <a href='/' class='btn btn-dark'>back </a>
             </form>
 
         </div>
@@ -33,8 +33,8 @@
         <p id="pos"> </p>
     </div>
 
-    <figure id="myMap">Mapa</figure>
-    <a href='/' class='btn btn-dark'>Volver</a>
+    <figure id="myMap"></figure>
+  
 </div>
 {{!-- 
 <input id="pos" type="hidden" value=""> --}}

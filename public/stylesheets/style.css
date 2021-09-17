@@ -8,6 +8,7 @@ a {
 }
 
 */
+
 h1,
 h2,
 h3,
@@ -26,7 +27,6 @@ body {
 #sticky {
   border-bottom: 1px solid #989ea4;
   border-top: 1px solid #717d85;
-  position: sticky;
 }
 .resolve {
   height: 15em;
@@ -42,9 +42,15 @@ body {
   height: 400px;
   background-color: red;
 }
+#myMapCreate {
+  margin: 10px;
+  height: 0px;
+  background-color: red;
+}
 .column {
-  /* border-image: 10;
-  border-color: black;
-  border-radius: 50%; */
   margin: 10 px;
+}
+
+nav {
+  color: black;
 }
