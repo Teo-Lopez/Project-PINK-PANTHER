@@ -14,7 +14,7 @@
             <h4 id="tagName">{{total.[0]}} {{info.theUpload.tagId.name}} in this moment</h4>    
             
             {{#if checkArchitect}}
-            <form action='/fotograma/eliminar/{{id}}' method="post">
+            <form action='/fotograma/eliminar/{{info.theUpload.id}}' method="post">
                 <button type="submit" class="btn btn-danger">delete upload</button>
             </form>
             {{/if}}
