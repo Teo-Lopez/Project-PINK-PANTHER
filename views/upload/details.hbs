@@ -1,15 +1,13 @@
 
 <div class="container">
-<h3>Vista de Detalles de Upload</h3>
+<h3>upload details </h3>
     <div class="row">
         <div class="col-12">
 
-            <p>Tag:
-            <span id="tagName">{{info.theUpload.tagId.name}}</span></p>
-            <p>Hay {{total.[0]}} {{info.theUpload.tagId.name}} en este momento</p>
+            <input hidden type="text" name="id" value={{id}}">
             {{#if checkArchitect}}
             <form action='/fotograma/eliminar/{{id}}' method="post">
-                <button type="submit" class="btn btn-danger">Borrar fotograma</button>
+                <button type="submit" class="btn btn-danger">delete upload</button>
             </form>
             {{/if}}
             
@@ -18,7 +16,10 @@
         <div class="col-12">
 
             <figure id="myMap">Mapa</figure>
+            <h4 id="tagName">{{total.[0]}} {{info.theUpload.tagId.name}} in this moment</h4>
+            <br>
             <a href='/' class='btn btn-dark'>Volver</a>
+            
         </div>
 
     </div>

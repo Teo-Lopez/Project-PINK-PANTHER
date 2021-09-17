@@ -8,7 +8,7 @@ router.post("/registro", (req, res) => {
 
   if (userPwd.length === 0) {
     res.render("auth/signup-form", {
-      errorMsg: "La contraseña es obligatoria",
+      errorMsg: "password required",
     });
     return;
   }
@@ -16,7 +16,7 @@ router.post("/registro", (req, res) => {
   User.findOne({ email })
     .then((user) => {
       if (user) {
-        res.render("auth/signup-form", { errorMsg: "Usuario ya registrado" });
+        res.render("auth/signup-form", { errorMsg: "email already exists" });
         return;
       }
 
@@ -40,7 +40,7 @@ router.post("/inicio-sesion", (req, res) => {
 
   if (userPwd.length === 0 || email.length === 0) {
     res.render("auth/login-form", {
-      errorMsg: "Se deben rellenar todos los campos",
+      errorMsg: "all fields must be completed",
     });
     return;
   }
@@ -48,25 +48,24 @@ router.post("/inicio-sesion", (req, res) => {
   User.findOne({ email })
     .then((user) => {
       if (!user) {
-        res.render("auth/login-form", { errorMsg: "El usuario no existe" });
+        res.render("auth/login-form", { errorMsg: "email does not exist" });
         return;
       }
       if (bcrypt.compareSync(userPwd, user.password) === false) {
-        res.render("auth/login-form", { errorMsg: "Contraseña incorrecta" });
+        res.render("auth/login-form", { errorMsg: "incorrect password" });
         return;
       }
 
-      req.session.currentUser = user
-     // req.app.locals.currentUser = user
+      req.session.currentUser = user;
+      // req.app.locals.currentUser = user
       res.redirect("/");
     })
     .catch((err) => console.log(err));
 });
 
 router.get("/cerrar-sesion", (req, res) => {
-
   req.session.destroy(() => res.redirect("/"));
-  req.app.locals.currentUser = null
+  req.app.locals.currentUser = null;
 });
 
 module.exports = router;

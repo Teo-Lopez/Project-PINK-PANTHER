@@ -1,24 +1,23 @@
-<h1>{{titleMain}}</h1>
-<br>
+
 <div class="container">
     <div class="row ">
         <div class="col">
-            <a href="/fotograma/crear" class="btn btn-dark">Creacion</a>
+            <a href="/fotograma/crear" class="btn btn-dark">Upload</a>
         </div>
         <div class="col">
-            <a href="/tendencias" class="btn btn-dark">Tendencias</a>
+            <a href="/tendencias" class="btn btn-dark">Trends</a>
         </div>
     </div>
 </div>
 
 <div class="container">
-    <div class="row">
-        <div class="col-4 column">
-            <h4> <span> Tag:</span>{{tagUploads.[0].tagId.name}}</h4>
+            <h4>{{tagUploads.[0].tagId.name}}</h4>
+    <div class="row d-flex justify-content-center">
+        <div class="col-10 column">
             {{#each tagUploads}}
             <img class="resolve" src="{{img}}" alt="imagen">
             {{#if ../isUser}}
-            <a href='/fotograma/detalles/{{id}}' class="btn btn-dark"> ir a narnia</a>
+            <a href='/fotograma/detalles/{{id}}' class="btn btn-dark"> details</a>
             {{/if}}
             {{/each}}
         </div>

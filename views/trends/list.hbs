@@ -10,7 +10,7 @@
     
 </div> --}}
 
-<div class="container">
+{{!-- <div class="container">
     <h2>Vista de tendencias</h2>
     <div class="row">
     {{#each allUploads}}
@@ -22,6 +22,25 @@
         {{/each}}
     {{/each}} 
     </div>
+</div> --}}
+
+
+
+
+<div class="container">
+        <h2>trends</h2>
+        <div class="row d-flex justify-content-center">
+            {{#each allUploads}}
+            <div>
+                <a href="tendencias/detalles/{{this.0.tagId.id}}">
+                    <h4>{{this.0.tagId.name}}</h4>
+                </a>
+            </div>
+                {{#each this}}
+                    <div class="col-11 column">
+                        <a href="tendencias/detalles/{{../this.0.tagId.id}}"><img class="resolve" src="{{img}}" alt="imagen"></a>
+                    </div>
+                {{/each}}
+            {{/each}}
+        </div>  
 </div>
-
-

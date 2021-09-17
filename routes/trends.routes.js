@@ -36,7 +36,7 @@ router.get("/", isLoggedIn, (req, res) => {
     })
     .then((trendingTags) => {
       const promiseArray = trendingTags.map((elem) =>
-        Upload.find({ tagId: elem.id }).populate("tagId")
+        Upload.find({ tagId: elem.id }).populate("tagId").limit(3)
       );
 
       Promise.all(promiseArray).then((allUploads) => {

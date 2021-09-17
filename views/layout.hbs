@@ -11,7 +11,7 @@
    </head>
 
    <body>
-      <nav class='sticky-top navbar navbar-expand-md navbar-dark bg-dark'>
+      <nav class='fixed-top navbar navbar-expand-md navbar-dark bg-dark'>
          <a class='navbar-brand' href='/'>Watchadoing?_</a>
          <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent'
             aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
@@ -21,15 +21,14 @@
             <ul class='navbar-nav ml-auto'>
             {{!-- {{#if isUser}} --}}
                <li class='nav-item'>
-                  <a class='nav-link' href='/perfil'>Mi perfil</a>
+                  <a class='nav-link' href='/perfil'>my profile</a>
+               </li>
+               <li class='nav-item'>
+                  <a class='nav-link' href='/inicio-sesion'>log in</a>
                </li>
             {{!-- {{/if}} --}}
                <li class='nav-item'>
-                  <a class='nav-link' href='/inicio-sesion'>Iniciar sesion</a>
-               </li>
-               
-               <li class='nav-item'>
-                  <a class='nav-link' href='/cerrar-sesion'>Cerrar sesion</a>
+                  <a class='nav-link' href='/cerrar-sesion'>log out</a>
                </li>
             </ul>
          </div>
@@ -37,11 +36,29 @@
 
       {{{body}}}
 
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-      <script src="/js/script.js"></script>
+
+   <footer class="fixed-bottom"> 
+      <nav class='navbar navbar-expand-md navbar-dark bg-dark'>
+         <a class='navbar' href='/'>random</a>
+         <a class='navbar' href='/fotograma/crear'>upload</a>
+         <a class='navbar' href='/tendencias'>trends</a>
+      </nav>
+   </footer>
+      <script src='https://code.jquery.com/jquery-3.5.1.slim.min.js'
+         integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous'></script>
+      <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js'
+         integrity='sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns' crossorigin='anonymous'></script>
+      <script src='/js/script.js'></script>
    </body>
 
 </html>
+
+<svg class="icon icon-star-full">
+   <use xlink:href="#icon-star-full"></use>
+</svg>
+<svg class="icon icon-plus">
+   <use xlink:href="#icon-plus"></use>
+</svg>
+<svg class="icon icon-shuffle">
+   <use xlink:href="#icon-shuffle"></use>
+</svg>
