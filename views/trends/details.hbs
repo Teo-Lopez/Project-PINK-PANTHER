@@ -3,10 +3,10 @@
 <div class="container">
     <div class="row ">
         <div class="col">
-            <a href="/fotograma/crear" class="btn btn-dark">Creacion</a>
+            <a href="/fotograma/crear" class="btn btn-outline-success">Creacion</a>
         </div>
         <div class="col">
-            <a href="/tendencias" class="btn btn-dark">Tendencias</a>
+            <a href="/tendencias" class="btn btn-outline-success">Tendencias</a>
         </div>
     </div>
 </div>
@@ -18,7 +18,7 @@
             {{#each tagUploads}}
             <img class="resolve" src="{{img}}" alt="imagen">
             {{#if ../isUser}}
-            <a href='/fotograma/detalles/{{id}}' class="btn btn-dark"> ir a narnia</a>
+            <a href='/fotograma/detalles/{{id}}' class="btn btn-outline-success"> ir a narnia</a>
             {{/if}}
             {{/each}}
         </div>
