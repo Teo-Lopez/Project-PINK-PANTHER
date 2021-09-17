@@ -26,8 +26,14 @@ function centerMap({ latitude, longitude }, map) {
 }
 
 function getUploads(map) {
+  const isDetailsView = window.location.href.includes("/fotograma/detalles");
+  let id;
+  if (isDetailsView) {
+    id = document.getElementsByTagName("id")[0].value;
+  }
+
   axios
-    .get("/api/uploads")
+    .get(id ? `/api/uploads?_id=${id}` : "/api/uploads")
     .then((response) => printUploads(response.data, map))
     .catch((err) => console.log(err));
 }

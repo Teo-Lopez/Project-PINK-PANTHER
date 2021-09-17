@@ -1,5 +1,4 @@
-<h1>{{titleMain}}</h1>
-<br>
+
 <div class="container">
     <div class="row ">
         <div class="col">
@@ -12,9 +11,9 @@
 </div>
 
 <div class="container">
-    <div class="row">
-        <div class="col-4 column">
-            <h4> <span> Tag:</span>{{tagUploads.[0].tagId.name}}</h4>
+            <h4>{{tagUploads.[0].tagId.name}}</h4>
+    <div class="row d-flex justify-content-center">
+        <div class="col-10 column">
             {{#each tagUploads}}
             <img class="resolve" src="{{img}}" alt="imagen">
             {{#if ../isUser}}
