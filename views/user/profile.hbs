@@ -9,17 +9,17 @@
 
                 <div class="form-group">
                     {{#if checkPeasant}}
-                    <img src="https://res.cloudinary.com/dvk0p9wev/image/upload/v1631732354/KkrwCqU_ijftfm.png" alt="WHITE-RABBIT">
+                    <img class="resolve" src="https://res.cloudinary.com/dvk0p9wev/image/upload/v1631871243/PEASANT_lygsl4.jpg" alt="WHITE-RABBIT">
                     <p>FOLLOW THE WHITE RABBIT, UPLOAD PHOTOS!!</p>
                     {{/if}}
                     {{#if checkAgent}}
-                    <img src="https://res.cloudinary.com/dvk0p9wev/image/upload/v1631732518/agente_m5pcez.jpg" alt="AGENT">
+                    <img class="resolve" src="https://res.cloudinary.com/dvk0p9wev/image/upload/v1631871376/AGENTE_nq2v6b.jpg" alt="AGENT">
                     <br>
-                    <p class="profile">RANGE: AGENT</p>
+                    <p class="profile">AGENT</p>
                     {{/if}}
                     {{#if checkArchitect}}
-                    <img src="" alt="ARCHITECT"> 
-                    <p class="profile">RANGE: ARCHITECT</p>
+                    <img class="resolve"  src="https://res.cloudinary.com/dvk0p9wev/image/upload/v1631871271/ARCHITECT_gdlm36.gif" alt="ARCHITECT"> 
+                    <p class="profile">ARCHITECT</p>
                     {{/if}}
                 </div>
                 <p>UPLOADS: {{user.counter}}</p>
@@ -33,7 +33,7 @@
                     <label for="password">password</label>
                     <input type="password" class="form-control" id="password" name="password" value="{{password}}">
                 </div>
-                <button type="submit" class="btn btn-warning">Save</button>
+                <button type="submit" class="btn btn-outline-success">save</button>
             </form>
 
 {{!-- 

@@ -4,22 +4,20 @@
     <div class="row">
         <div class="col-12">
 
-            <input hidden type="text" name="id" value={{id}}">
-            {{#if checkArchitect}}
-            <form action='/fotograma/eliminar/{{id}}' method="post">
-                <button type="submit" class="btn btn-danger">delete upload</button>
-            </form>
-            {{/if}}
+            <input hidden type="text" name="id" value={{id}}>
             
         </div>
 
         <div class="col-12">
 
-            <figure id="myMap">Mapa</figure>
-            <h4 id="tagName">{{total.[0]}} {{info.theUpload.tagId.name}} in this moment</h4>
-            <br>
-            <a href='/' class='btn btn-dark'>Volver</a>
+            <figure id="myMap"></figure>
+            <h4 id="tagName">{{total.[0]}} {{info.theUpload.tagId.name}} in this moment</h4>    
             
+            {{#if checkArchitect}}
+            <form action='/fotograma/eliminar/{{id}}' method="post">
+                <button type="submit" class="btn btn-danger">delete upload</button>
+            </form>
+            {{/if}}
         </div>
 
     </div>
