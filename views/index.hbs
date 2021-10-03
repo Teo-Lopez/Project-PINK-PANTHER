@@ -4,7 +4,9 @@
 </div>
 <div class="container">
     <div class="row d-flex justify-content-center">
-        <div class="col-11 column ">
+            <label for="tagId"></label>
+            <input class="btn btn-outline-success btn-block" pattern="#" name="tagId" id="tagId" placeholder="search for the white rabbit" >
+        <div class="col-11 column" id="feed">
             {{#each result}}
             <h4>{{tagId.name}}</h4>
             <img class="resolve" src="{{img}}" alt="imagen">
@@ -16,3 +18,4 @@
         </div>
     </div>
 </div>
+<script src="js/searchbar.js"></script>
